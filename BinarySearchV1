@@ -1,0 +1,39 @@
+//Alpha but correct version of "binary search algorithm" by myself, without using google, stackoverflow and anything else
+//only me, computer and two smoking eyes
+#include <iostream>
+	const int n = 20;
+using namespace std;
+int main() {
+	int a[n];
+	int pair = 0;
+	for (int i = 0;i < n;i++) {
+		a[i] = i;
+	}
+	int k = n/2;
+	int val = 4;//sought value
+	for (int i = 1;i < n;i++) {
+		if (a[0] > val) {
+			cout << "a[0]> val";
+			break;
+		}
+		if (a[n - 1] < val) {
+			cout << "a[n-1]<val";
+			break;
+		}
+
+		if((a[k]<=val)&&(val<a[k+1])){
+			cout << "i= " << i << " steps\n";
+			cout << a[k] << " is element " << k;
+			break;
+		}
+		else if(a[k]>val){
+			k = k - (k / 2);
+		}
+		else if (a[(k) + 1] <= val) {
+			k = k + (k / 2);
+		}
+	
+	}
+
+	return 0;
+}
